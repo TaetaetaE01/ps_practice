@@ -11,9 +11,11 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int[] result = new int[26];
             String s = br.readLine();
-            s = s.replace(" ", "");
 
             for (int j = 0; j < s.length(); j++) {
+                if (s.charAt(j) == ' ') {
+                    continue;
+                }
                 result[s.charAt(j) - 'a']++;
             }
 
