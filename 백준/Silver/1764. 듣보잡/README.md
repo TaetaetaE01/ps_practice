@@ -1,5 +1,17 @@
 # [Silver IV] 듣보잡 - 1764 
 
+### ✔️ 접근법
+듣지 못한 녀석 중에서 보지 못한 녀석의 중복을 찾아야하기 때문에 보지 못한 녀석을 Hash 탐색을 이용해 중복을 찾고 해당 결과를 정렬해 응답한다
+
+
+### ✔️ 알게된 점
+Collections.sort(); - 시간복답도 n log n
+hashSet.containsKey(); - 시간복잡도 O(1);
+-> 해시 값으로 탐색
+
+---
+
+
 [문제 링크](https://www.acmicpc.net/problem/1764) 
 
 ### 성능 요약
