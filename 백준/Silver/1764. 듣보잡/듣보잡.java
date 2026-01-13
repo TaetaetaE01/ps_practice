@@ -2,8 +2,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -17,14 +19,14 @@ public class Main {
 
         List<String> result = new ArrayList<>();
 
-        Map<String, Integer> noListenList = new HashMap();
+        Set<String> noListenList = new HashSet<>();
         for (int i = 0; i < N; i++) {
-            noListenList.put(br.readLine(), i);
+            noListenList.add(br.readLine());
         }
 
         for (int i = 0; i < M; i++) {
             String noWatchName = br.readLine();
-            if (noListenList.containsKey(noWatchName)) {
+            if (noListenList.contains(noWatchName)) {
                 result.add(noWatchName);
             }
         }
