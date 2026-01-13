@@ -6,6 +6,7 @@
 
 ### ✔️ 알게된 점
 Collections.sort(); - 시간복답도 n log n
+
 hashSet.containsKey(); - 시간복잡도 O(1);
 -> 해시 값으로 탐색
 
