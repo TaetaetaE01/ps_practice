@@ -1,35 +1,38 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
 
-		Scanner sc = new Scanner(System.in);
-		int people = sc.nextInt();
+        int[][] memberList = new int[2][n];
 
-		int arr[][] = new int[2][people];
-		int rank[] = new int[people];
+        for (int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int weight = Integer.parseInt(st.nextToken());
+            int height = Integer.parseInt(st.nextToken());
 
-		for (int i = 0; i < people; i++) {
-			arr[0][i] = sc.nextInt();
-			arr[1][i] = sc.nextInt();
+            // 0은 몸무게 리스트
+            // 1은 키 리스트
+            memberList[0][i] = weight;
+            memberList[1][i] = height;
+        }
 
-		}
-		sc.close();
-        
-		for (int j = 0; j < people; j++) {
-			int rankNum = 1;
+        for (int i = 0; i < n; i++) {
+            int rank = 1;
 
-			for (int n = 0; n < people; n++) {
-				if (j == n) {
-					continue;
-				}
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (memberList[0][i] < memberList[0][j] && memberList[1][i] < memberList[1][j]) {
+                    rank++;
+                }
 
-				if (arr[0][j] < arr[0][n] && arr[1][j] < arr[1][n]) {
-					rankNum++;
-				}
-			}
-			System.out.print(rankNum + " ");
-		}
-	}
+            }
+            System.out.print(rank + " ");
+        }
+    }
 }
