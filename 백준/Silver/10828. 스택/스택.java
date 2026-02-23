@@ -32,6 +32,7 @@ public class Main {
                     sb.append("0" + "\n");
                 }
             } else if (input.startsWith("top")) {
+                // peek()에 비어있으면 EmptyStackException를 던짐
                 if (stack.isEmpty()) {
                     sb.append("-1" + "\n");
                 } else {
