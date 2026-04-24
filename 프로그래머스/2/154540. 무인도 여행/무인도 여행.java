@@ -59,7 +59,7 @@ class Solution {
         int day = charMaps[x][y] - '0';
         
         Queue<int[]> q = new LinkedList<>();
-        q.add(new int[] {x, y});
+        q.add(new int[] {x, y, 0});
        
         visited[x][y] = true;
         
@@ -67,6 +67,9 @@ class Solution {
             int[] current = q.poll();
             int cx = current[0];
             int cy = current[1];
+            int cDay = current[2];
+            
+            day += cDay;
             
             for(int i = 0 ; i < 4 ; i ++){
                 int nx = cx + dx[i];
@@ -75,8 +78,7 @@ class Solution {
                 if(nx >= 0 && nx < h && ny >= 0 && ny < w){
                     if(!visited[nx][ny] && charMaps[nx][ny] != 'X'){
                         visited[nx][ny] = true;
-                        q.add(new int[] {nx, ny});
-                        day += charMaps[nx][ny] - '0';
+                        q.add(new int[] {nx, ny, charMaps[nx][ny] - '0'});
                     }
                 }
             }
